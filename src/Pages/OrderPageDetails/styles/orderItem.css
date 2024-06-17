@@ -1,0 +1,31 @@
+.orderPage-list-item {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.orderPage-wrapper {
+  position: relative;
+  padding: 0 20px;
+}
+
+.orderPage-list {
+  width: 50%;
+}
+
+.orderPage-button {
+  padding: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+}
+
+.orderPage-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+}
