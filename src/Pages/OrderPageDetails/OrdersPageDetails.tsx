@@ -22,6 +22,7 @@ export const OrderPageDetails = () => {
 
   const handleAddItem = () => {
     setIsShown(!isShown);
+    dispatch(fetchProducts());
   };
 
   useEffect(() => {
@@ -98,13 +99,13 @@ export const OrderPageDetails = () => {
             <Sidebar onClose={handleAddItem}>
               <div className="w-1/2 bg-white h-full border-2 border-black rounded-sm p-5">
                 {
-                  (memoizedOrderDetails && memoizedOrderDetails.items.length) &&
+                  (orderDetails && products && Object.keys(products).length > 0) &&
                   products.map(product => {
                     return (
                       <div key={product.id} className="w-full">
                         <SidebarProductItem
                           product={product}
-                          orderId={memoizedOrderDetails.id}
+                          orderId={orderDetails.id}
                         />
                       </div>
                     );
