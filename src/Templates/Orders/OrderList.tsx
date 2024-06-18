@@ -22,13 +22,14 @@ interface ModifiedOrderData {
 export const OrderList = ({ listItems }: OrderListProps) => {
   const [modifiedOrderList, setModifiedOrderList] = useState<ModifiedOrderData[]>([]);
   const dispatch: AppDispatch = useDispatch();
-  const { customers, loading } = useSelector((state: RootState) => state.customers);
+  const { customers, loading, error } = useSelector((state: RootState) => state.customers);
+  console.log(customers, 'customers');
 
   useEffect(() => {
-    if (Object.keys(customers).length === 0) {
+    if (!customers.length) {
       dispatch(fetchCustomers());
     }
-  }, [dispatch, customers]);
+  }, [dispatch, customers.length]);
 
   useEffect(() => {
     if (!loading && Object.keys(customers).length > 0) {
@@ -48,9 +49,8 @@ export const OrderList = ({ listItems }: OrderListProps) => {
     }
   }, [listItems, customers, loading]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) <div>Loading...</div>;
+  if (error) <div>Error: {error}</div>;
 
   return (
     <>
