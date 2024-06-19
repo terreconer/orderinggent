@@ -2,12 +2,12 @@ import axios from "axios";
 import { DATA_URL } from "./constants";
 import { Product } from "../types/types";
 
-export const handleFetchProducts = async () => {
+export const handleGetProducts = async () => {
   const { data } = await axios.get(`${DATA_URL}/products.json`);
   return data;
 };
 
-export const handleFetchProductById = async (productId: string): Promise<Product> => {
+export const handleGetProductById = async (productId: string): Promise<Product> => {
   const { data } = await axios.get(`${DATA_URL}/products.json`);
   const product = data.find((product: Product) => product.id === productId);
 

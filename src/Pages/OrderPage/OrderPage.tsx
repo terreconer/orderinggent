@@ -12,10 +12,16 @@ export const OrderPage = () => {
     dispatch(fetchOrders());
   }, [dispatch]);
 
+  /**
+   * TODO: add loading handling functionality to enhance UX and optimize app performance
+   */
   if (ordersLoading) {
     return <p>Loading...</p>
   }
 
+  /**
+   * TODO: add error handling functionality to enhance UX and optimize app performance
+   */
   if (ordersError) {
     return <p>Error</p>
   }

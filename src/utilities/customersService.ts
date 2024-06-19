@@ -12,8 +12,6 @@ export const handleFetchCustomersById = async (customerId: string): Promise<Cust
   const { data } = await handleFetchCustomers();
   const customer = data.find((customer: Customer) => customer.id === customerId);
 
-  console.log(customer, 'customercustomer');
-
   if (!customer) {
     throw new Error('Customer not found')
   }

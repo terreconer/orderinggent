@@ -41,10 +41,16 @@ export const OrderPageDetails = () => {
   const memoizedOrderDetails = useMemo(() => orderDetails, [orderDetails]);
   const memoizedProductDetails = useMemo(() => productDetails, [productDetails]);
 
+  /**
+   * TODO: add loading handling functionality to enhance UX and optimize app performance
+   */
   if (orderLoad || productLoad) {
     return <p>Loading...</p>
   }
 
+  /**
+   * TODO: add error handling functionality to enhance UX and optimize app performance
+   */
   if (orderError || productError) {
     return <p>Error</p>
   }

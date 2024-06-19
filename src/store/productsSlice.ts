@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { handleFetchProducts } from "../utilities/productService";
+import { handleGetProducts } from "../utilities/productService";
 import { OrderItemType, Product } from '../types/types';
 
 interface ProductState {
@@ -20,7 +20,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
-      return await handleFetchProducts();
+      return await handleGetProducts();
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
@@ -31,7 +31,7 @@ export const fetchProductById = createAsyncThunk(
   'product/fetchProductById',
   async (items: OrderItemType[], { rejectWithValue }) => {
     try {
-      const products = await handleFetchProducts();
+      const products = await handleGetProducts();
 
       const orderProducts = items.map((item) => {
         return products.find((product: { id: string; }) => product.id === item['product-id']);

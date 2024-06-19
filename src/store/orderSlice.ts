@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { handleFetchOrderById, handleFetchOrders } from "../utilities/orderService";
+import { handleGetOrderById, handleGetOrders } from "../utilities/orderService";
 import { Order, Product, Discount } from "../types/types";
 
 interface OrderState {
@@ -20,7 +20,7 @@ export const fetchOrders = createAsyncThunk(
   'orders/fetchOrders',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await handleFetchOrders();
+      const response = await handleGetOrders();
       return response;
     } catch (error: any) {
       return rejectWithValue(error.response.data)
@@ -32,7 +32,7 @@ export const fetchOrderById = createAsyncThunk(
   'orders/fetchOrderById',
   async (orderId: string, { rejectWithValue }) => {
       try {
-        const response = await handleFetchOrderById(orderId);
+        const response = await handleGetOrderById(orderId);
         return response;
       } catch (error: any) {
         return rejectWithValue(error.response.data);
