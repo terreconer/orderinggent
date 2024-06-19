@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { handleFetchOrderById, handleFetchOrders } from "../utilities/orderService";
-import { Order, Product } from "../types/types";
+import { Order, Product, Discount } from "../types/types";
 
 interface OrderState {
   orders: Order[];
@@ -39,6 +39,19 @@ export const fetchOrderById = createAsyncThunk(
       }
   }
 );
+
+const applyDiscounts = (order: Order, discounts: Discount[]) => {
+  const updatedOrders = order.items.map((item) => {
+    const discountedProduct = discounts.find((discount) => item['product-id'] === discount.productId);
+    /**
+     * TODO: add functionality based on rules discounts apply to each matching product
+     * calculated new `item.total` value for each matching product
+     * update `order.total` value
+    */
+    console.log(discountedProduct);
+    return [];
+  });
+};
 
 const orderSlice = createSlice({
   name: 'orders',

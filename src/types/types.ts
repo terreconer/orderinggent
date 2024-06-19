@@ -3,6 +3,7 @@ export interface Order {
   'customer-id': string;
   items: OrderItemType[];
   total: string;
+  discount?: Discount;
 };
 
 export type OrderItemType = {
@@ -24,5 +25,14 @@ export interface Product {
   description: string;
   category: string;
   price: string;
-  quantity?: string;
+  quantity: string;
+  discount?: Discount[];
 };
+
+export interface Discount {
+  productId: string;
+  discount: number;
+  discountType: 'relative' | 'fixed';
+  discountCondition: number;
+  discountConditionApply: 'more' | 'equals';
+}

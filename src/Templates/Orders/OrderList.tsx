@@ -23,7 +23,6 @@ export const OrderList = ({ listItems }: OrderListProps) => {
   const [modifiedOrderList, setModifiedOrderList] = useState<ModifiedOrderData[]>([]);
   const dispatch: AppDispatch = useDispatch();
   const { customers, loading, error } = useSelector((state: RootState) => state.customers);
-  console.log(customers, 'customers');
 
   useEffect(() => {
     if (!customers.length) {

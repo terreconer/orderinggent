@@ -1,0 +1,16 @@
+[
+  {
+    "productID": "A102",
+    "discount": 0.2,
+    "discountType": "relative",
+    "discountCondition": 5,
+    "discountConditionApply": "more"
+  },
+  {
+    "productID": "A101",
+    "discount": 5,
+    "discountType": "fixed",
+    "discountCondition": 2,
+    "discountConditionApply": "equals"
+  }
+]
